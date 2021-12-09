@@ -7,6 +7,7 @@ pipeline {
     stage('Install') {
       steps {
         sh "npm install"
+        sh "mg install eslint -g"
       }
     }
   
@@ -23,7 +24,7 @@ pipeline {
     }*/
     stage('Static Analysis') {
       steps {
-            sh ' /var/lib/jenkins/workspace/AngularApp/node_modules/eslint/bin/eslint.js -f checkstyle src > eslint.xml'
+            sh ' ./node_modules/eslint/bin/eslint.js -f checkstyle src > eslint.xml'
         }
         post {
             always {
