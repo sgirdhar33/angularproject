@@ -16,10 +16,10 @@ pipeline {
     }
   }
     
-    stage('Code Coverage') {
+   /* stage('Code Coverage') {
       steps{
         ng test --no-watch --code-coverage
       }
-    }
+    }*/
   }
 }
