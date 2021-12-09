@@ -9,9 +9,15 @@ pipeline {
         bat 'npm install'
       }
     }
-  }
+  
   stage('Build') {
     bat 'ng build'
   }
-
+    
+    stage('Code Coverage') {
+      steps{
+        bat 'ng test --no-watch --code-coverage'
+      }
+    }
+  }
 }
