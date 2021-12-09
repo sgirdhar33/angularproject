@@ -7,7 +7,7 @@ pipeline {
     stage('Install') {
       steps {
         sh "npm install"
-        sh "mg install eslint -g"
+        sh "ng install eslint -g"
       }
     }
   
