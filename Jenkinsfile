@@ -6,13 +6,13 @@ pipeline {
   stages{
     stage('Install') {
       steps {
-        npm install
+        dnf install npm 
       }
     }
   
   stage('Build') {
     steps{
-     ng build
+     dnf ng build
     }
   }
     
