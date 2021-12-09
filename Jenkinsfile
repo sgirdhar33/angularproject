@@ -16,10 +16,21 @@ pipeline {
     }
   }
     
-    stage('Code Coverage') {
+  stage('Code Coverage') {
       steps{
         sh "ng test --no-watch --code-coverage"
       }
     }
+    stage('Static Analysis') {
+      steps {
+            sh ' /var/lib/jenkins/workspace/AngularApp/node_modules/eslint/bin/eslint.js -f checkstyle src > eslint.xml'
+        }
+        post {
+            always {
+                recordIssues enabledForFailure: true, aggregatingResults: true, tool: checkStyle(pattern: 'eslint.xml')
+            }
+        }
+    }
+    
   }
 }
