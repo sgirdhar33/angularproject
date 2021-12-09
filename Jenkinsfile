@@ -24,7 +24,7 @@ pipeline {
     }*/
     stage('Static Analysis') {
       steps {
-            sh ' ./node_modules/eslint/bin/eslint.js -f checkstyle src > eslint.xml'
+            sh ' /var/lib/jenkins/workspace/AngularApp/node_modules/eslint/bin/eslint.js -f checkstyle src > eslint.xml'
         }
         post {
             always {
