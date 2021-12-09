@@ -6,19 +6,19 @@ pipeline {
   stages{
     stage('Install') {
       steps {
-        bat 'npm install'
+        npm install
       }
     }
   
   stage('Build') {
     steps{
-    bat 'ng build'
+     ng build
     }
   }
     
     stage('Code Coverage') {
       steps{
-        bat 'ng test --no-watch --code-coverage'
+        ng test --no-watch --code-coverage
       }
     }
   }
