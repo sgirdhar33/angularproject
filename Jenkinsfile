@@ -11,7 +11,9 @@ pipeline {
     }
   
   stage('Build') {
+    steps{
     bat 'ng build'
+    }
   }
     
     stage('Code Coverage') {
