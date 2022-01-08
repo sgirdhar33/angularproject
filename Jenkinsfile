@@ -6,14 +6,14 @@ pipeline {
   stages{
     stage('Install') {
       steps {
-        sh "npm install"
-        sh "npm install eslint -g"
+        bat "npm install"
+        bat "npm install eslint -g"
       }
     }
   
   stage('Build') {
     steps{
-     sh "ng build"
+     bat "ng build"
     }
   }
     
@@ -22,7 +22,7 @@ pipeline {
         sh "ng test --no-watch --code-coverage"
       }
     }*/
-    stage('Static Analysis') {
+    /*stage('Static Analysis') {
       steps {
             sh ' /var/lib/jenkins/workspace/AngularApp/node_modules/eslint/bin/eslint.js -f checkstyle src > eslint.xml'
         }
@@ -31,7 +31,7 @@ pipeline {
                 recordIssues enabledForFailure: true, aggregatingResults: true, tools: checkStyle(pattern: 'eslint.xml')
             }
         }
-    }
+    }*/
     
   }
 }
