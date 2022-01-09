@@ -14,7 +14,7 @@ pipeline {
   
   stage('Build') {
     steps {
-     bat 'ng build --configuration="dev"'
+     bat 'ng build'
     }
   }
     
