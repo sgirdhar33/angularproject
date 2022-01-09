@@ -8,6 +8,7 @@ pipeline {
       steps {
         bat 'npm install'
         bat 'npm install eslint -g'
+        bat 'npm install -g @angular/cli'
       }
     }
   
