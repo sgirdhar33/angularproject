@@ -9,12 +9,14 @@ pipeline {
         bat 'npm install -g'
         bat 'npm install eslint -g'
         bat 'npm install -g @angular/cli@latest'
+        bat 'npm install -g gulp-cli'
+        bat 'npm install --save-dev gulp-zip'
       }
     }
   
   stage('Build') {
     steps {
-     bat 'ng build'
+     bat 'ng build && gulp compress'
     }
   }
     
