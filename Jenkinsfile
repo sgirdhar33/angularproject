@@ -6,14 +6,14 @@ pipeline {
   stages{
     stage('Install') {
       steps {
-        bat "npm install"
-        bat "npm install eslint -g"
+        bat 'npm install'
+        bat 'npm install eslint -g'
       }
     }
   
   stage('Build') {
     steps{
-     bat "ng build"
+     bat 'ng build'
     }
   }
     
