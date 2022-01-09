@@ -12,8 +12,8 @@ pipeline {
     }
   
   stage('Build') {
-    steps{
-     bat 'ng build'
+    steps {
+     bat 'ng build --configuration="dev"'
     }
   }
     
@@ -22,16 +22,17 @@ pipeline {
         sh "ng test --no-watch --code-coverage"
       }
     }*/
-    /*stage('Static Analysis') {
+    
+    stage('Static Analysis') {
       steps {
-            sh ' /var/lib/jenkins/workspace/AngularApp/node_modules/eslint/bin/eslint.js -f checkstyle src > eslint.xml'
+            bat 'node node_modules/eslint/bin/eslint.js -f checkstyle src > eslint.xml'
         }
         post {
             always {
                 recordIssues enabledForFailure: true, aggregatingResults: true, tools: checkStyle(pattern: 'eslint.xml')
             }
         }
-    }*/
+    }
     
   }
 }
