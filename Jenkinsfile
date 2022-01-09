@@ -26,7 +26,7 @@ pipeline {
       }
     }*/
     
-    stage('Static Analysis') {
+    /*stage('Static Analysis') {
       steps {
             bat 'node node_modules/eslint/bin/eslint.js -f checkstyle src > eslint.xml'
         }
@@ -35,7 +35,7 @@ pipeline {
                 recordIssues enabledForFailure: true, aggregatingResults: true, tools: checkStyle(pattern: 'eslint.xml')
             }
         }
-    }
+    }*/
     
   }
 }
